@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="content">
+    <link rel="stylesheet" type="text/css" href="../static/css/images.css"
+          th:href="@{/css/images.css}">
+    <div th:each="id : ${type_id}">
+        <div class="col-3 py-1 float-left">
+            <img class="img-fluid rounded basic" th:src="@{'/image/get/' + ${id}}" alt="Ooops seems something went wrong!" oncontextmenu="return false;">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
