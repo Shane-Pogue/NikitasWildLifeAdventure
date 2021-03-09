@@ -11,5 +11,5 @@ import java.util.List;
 public interface ImageRepository extends CrudRepository<Image, Long> {
 
     @Query("select id from Image i where imageType = :type")
-    List <Long> findByType(@Param("type") ImageType type);
+    List<Long> findByType(@Param("type") ImageType type);
 }

@@ -21,14 +21,14 @@ public class ImageController {
 
     private final ImageRepository imageRepository;
 
-    ImageController(ImageRepository imageRepository){
+    ImageController(ImageRepository imageRepository) {
         this.imageRepository = imageRepository;
     }
 
     @GetMapping({"/{type}"})
-    public String birds(Model model, @PathVariable String type){
+    public String birds(Model model, @PathVariable String type) {
 
-        if (type == null || type.isEmpty() ){
+        if (type == null || type.isEmpty()) {
             model.addAttribute("page", "fragments/index");
             return "index";
         }

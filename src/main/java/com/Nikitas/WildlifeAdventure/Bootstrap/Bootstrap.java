@@ -1,8 +1,9 @@
 package com.Nikitas.WildlifeAdventure.Bootstrap;
 
 
-import com.Nikitas.WildlifeAdventure.Domain.*;
-import com.Nikitas.WildlifeAdventure.Repositories.*;
+import com.Nikitas.WildlifeAdventure.Domain.Image;
+import com.Nikitas.WildlifeAdventure.Domain.ImageType;
+import com.Nikitas.WildlifeAdventure.Repositories.ImageRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -25,12 +26,12 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         this.imageRepository = imageRepository;
     }
 
-    public ArrayList<MultipartFile> readFiles(String directory){
+    public ArrayList<MultipartFile> readFiles(String directory) {
         File dir = new File(directory);
         ArrayList<MultipartFile> fileData = new ArrayList<>();
 
-        for(File f : dir.listFiles()){
-            if(f.isFile()) {
+        for (File f : dir.listFiles()) {
+            if (f.isFile()) {
                 String name = f.getName();
                 String originalName = name;
                 String contentType = "text/plain";
@@ -43,19 +44,19 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
             }
         }
         return fileData;
-        }
+    }
 
     @Override
     @Transactional
-    public void onApplicationEvent(ContextRefreshedEvent event){
+    public void onApplicationEvent(ContextRefreshedEvent event) {
         log.info("Bootstrapping classes...");
         ArrayList<MultipartFile> pictures = new ArrayList<>();
         ArrayList<Image> images = new ArrayList<>();
 
-        log.info("Loading Birds... fucking birds....");
+        log.info("Loading Birds...");
         pictures = readFiles("src/main/resources/static/Birds");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.BIRD);
@@ -65,7 +66,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading Fish.....");
         pictures = readFiles("src/main/resources/static/Fish");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.FISH);
@@ -75,7 +76,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading Flowers.....");
         pictures = readFiles("src/main/resources/static/Flowers");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.FLOWER);
@@ -85,7 +86,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading General Wildlife.....");
         pictures = readFiles("src/main/resources/static/General wildlife");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.GENERAL);
@@ -95,7 +96,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading Insects..... and bugs.");
         pictures = readFiles("src/main/resources/static/Insects");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.INSECT);
@@ -105,7 +106,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading Moons.....");
         pictures = readFiles("src/main/resources/static/Moons");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.MOON);
@@ -115,7 +116,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading Reptiles.....");
         pictures = readFiles("src/main/resources/static/Reptiles");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.REPTILE);
@@ -125,7 +126,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         log.info("Loading Scenery.....");
         pictures = readFiles("src/main/resources/static/Scenery");
 
-        for (MultipartFile picture : pictures){
+        for (MultipartFile picture : pictures) {
             Image image = new Image();
             image.setPicture(picture);
             image.setImageType(ImageType.SCENERY);

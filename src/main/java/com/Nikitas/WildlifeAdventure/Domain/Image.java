@@ -3,15 +3,9 @@ package com.Nikitas.WildlifeAdventure.Domain;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
-import org.thymeleaf.util.ArrayUtils;
 
-import javax.imageio.ImageIO;
 import javax.persistence.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 
 @Slf4j
@@ -38,8 +32,7 @@ public class Image {
                 imageBytes[i++] = b;
             }
             return imageBytes;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             log.error("Error occurred", e);
             e.printStackTrace();
             return null;
@@ -48,9 +41,9 @@ public class Image {
 
     public void setPicture(MultipartFile picture) {
         try {
-            Integer i =0;
+            Integer i = 0;
             Byte[] image = new Byte[picture.getBytes().length];
-            for(Byte b : picture.getBytes()){
+            for (Byte b : picture.getBytes()) {
                 image[i++] = b;
             }
 
