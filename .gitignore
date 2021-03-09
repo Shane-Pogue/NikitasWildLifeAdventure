@@ -32,11 +32,11 @@ build/
 
 
 ###Picture###
-src/main/resources/static/Birds/*
-src/main/resources/static/Fish/*
-src/main/resources/static/Flowers/*
-src/main/resources/static/General wildlife/*
-src/main/resources/static/Insects/*
-src/main/resources/static/Moons/*
-src/main/resources/static/Reptiles/*
-src/main/resources/static/Scenery/*
+src/main/resources/static/Birds/*.jpg
+src/main/resources/static/Fish/*.jpg
+src/main/resources/static/Flowers/*.jpg
+src/main/resources/static/General wildlife/*.jpg
+src/main/resources/static/Insects/*.jpg
+src/main/resources/static/Moons/*.jpg
+src/main/resources/static/Reptiles/*.jpg
+src/main/resources/static/Scenery/*.jpg
