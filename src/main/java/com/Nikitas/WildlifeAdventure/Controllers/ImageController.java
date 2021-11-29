@@ -26,7 +26,7 @@ public class ImageController {
     }
 
     @GetMapping({"/{type}"})
-    public String birds(Model model, @PathVariable String type) {
+    public String getType(Model model, @PathVariable String type) {
 
         if (type == null || type.isEmpty()) {
             model.addAttribute("page", "fragments/index");

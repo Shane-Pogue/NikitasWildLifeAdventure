@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -31,7 +32,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
         ArrayList<MultipartFile> fileData = new ArrayList<>();
 
         for (File f : dir.listFiles()) {
-            if (f.isFile()) {
+            if (f.isFile() && !f.getName().contentEquals("dummy.txt")) {
                 String name = f.getName();
                 String originalName = name;
                 String contentType = "text/plain";
@@ -50,8 +51,8 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
         log.info("Bootstrapping classes...");
-        ArrayList<MultipartFile> pictures = new ArrayList<>();
-        ArrayList<Image> images = new ArrayList<>();
+        List<MultipartFile> pictures = new ArrayList<>();
+        List<Image> images = new ArrayList<>();
 
         log.info("Loading Birds...");
         pictures = readFiles("src/main/resources/static/Birds");
